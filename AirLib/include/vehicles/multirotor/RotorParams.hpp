@@ -27,23 +27,33 @@ namespace msr {
             D = propeller diameter in meters
             C_T, C_P = dimensionless constants available at
             propeller performance database http://m-selig.ae.illinois.edu/props/propDB.html
-
-            We use values for GWS 9X5 propeller for which,
-            C_T = 0.109919, C_P = 0.040164 @ 6396.667 RPM
+            Results for the standard AirSim drone
+            * force in Newton = 4.17944
+            * torque in Nm    = 0.05556
+            force in Newton = C_T * \rho * n^2 * D^4
+            4.17944 = C_T * 1.225 * (50000/60)^2 * 0.04^4
+            C_T = 1.91913
+            torque in N.m = C_T * \rho * n^2 * D^5 / (2*pi)
+            0.05556 = C_P * 1.225 * (50000/60)^2 * 0.04^5 / (2*pi)
+            C_P = 4.00745
+            take the weight factor into account (1kg -> 50g)
+            C_T = 1.91913 * 0.05 = 0.0959565
+            C_P = 4.00745 * 0.05 = 0.2003725
             */
-            real_T C_T = 0.109919f; // the thrust co-efficient @ 6396.667 RPM, measured by UIUC.
-            real_T C_P = 0.040164f; // the torque co-efficient at @ 6396.667 RPM, measured by UIUC.
+
+            real_T C_T = 0.0959565f; // the thrust co-efficient 
+            real_T C_P = 0.2003725f; // the torque co-efficient
             real_T air_density = 1.225f; //  kg/m^3
-            real_T max_rpm = 6396.667f; // revolutions per minute
-            real_T propeller_diameter = 0.2286f;   //diameter in meters, default is for DJI Phantom 2
-            real_T propeller_height = 1 / 100.0f;   //height of cylindrical area when propeller rotates, 1 cm
+            real_T max_rpm = 50000.0f; // revolutions per minute
+            real_T propeller_diameter = 0.04;   //diameter in meters
+            real_T propeller_height = 1 / 100.0f;   //height of cylindrical area when propeller rotates
             real_T control_signal_filter_tc = 0.005f;    //time constant for low pass filter
 
             real_T revolutions_per_second;
             real_T max_speed; // in radians per second
             real_T max_speed_square;
-            real_T max_thrust = 4.179446268f; //computed from above formula for the given constants
-            real_T max_torque = 0.055562f; //computed from above formula
+            real_T max_thrust = 0; //computed from above formula for the given constants
+            real_T max_torque = 0; //computed from above formula
 
             // call this method to recalculate thrust if you want to use different numbers for C_T, C_P, max_rpm, etc.
             void calculateMaxThrust() {
