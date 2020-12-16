@@ -59,7 +59,7 @@ public:
     virtual void setDistortionParam(const std::string& camera_name, const std::string& param_name, float value) = 0;
     virtual std::vector<float> getDistortionParams(const std::string& camera_name) = 0;
 
-    virtual void setLedIntensity(int intensity) = 0;
+    virtual void setLedIntensity(float intensity) = 0;
     virtual CollisionInfo getCollisionInfo() const = 0;
     virtual int getRemoteControlID() const = 0; //which RC to use, 0 is first one, -1 means disable RC (use keyborad)
     virtual RCData getRCData() const = 0; //get reading from RC from simulator's host OS

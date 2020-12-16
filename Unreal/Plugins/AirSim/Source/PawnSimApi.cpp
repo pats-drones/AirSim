@@ -344,11 +344,13 @@ PawnSimApi::CollisionInfo PawnSimApi::getCollisionInfo() const
     return state_.collision_info;
 }
 
-void PawnSimApi::setLedIntensity(int intensity)
+void PawnSimApi::setLedIntensity(float intensity)
 {
     if(ledComponent)
     {
-        ledComponent->SetIntensity(intensity);
+        UAirBlueprintLib::RunCommandOnGameThread([this, intensity]() {
+            ledComponent->SetIntensity(intensity);
+        }, true);
     }
 }
 

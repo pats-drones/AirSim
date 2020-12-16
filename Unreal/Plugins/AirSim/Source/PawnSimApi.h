@@ -84,7 +84,7 @@ public: //implementation of VehicleSimApiBase
     virtual std::vector<float> getDistortionParams(const std::string& camera_name) override;
 
     virtual CollisionInfo getCollisionInfo() const override;
-    virtual void setLedIntensity(int intensity) override;
+    virtual void setLedIntensity(float intensity) override;
     virtual int getRemoteControlID() const override;
     virtual msr::airlib::RCData getRCData() const override;
     virtual std::string getVehicleName() const override

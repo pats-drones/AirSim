@@ -58,7 +58,7 @@ public:
         return true;
     }
 
-    virtual bool setLedIntensity(int intensity)
+    virtual bool setLedIntensity(float intensity)
     {
         unused(intensity);
         throw VehicleCommandNotImplementedException("setLedIntensity API is not supported for this vehicle"); 

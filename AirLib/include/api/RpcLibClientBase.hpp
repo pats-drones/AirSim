@@ -42,7 +42,7 @@ public:
     void simPause(bool is_paused);
     void simContinueForTime(double seconds);
 
-    void setLedIntensity(int intensity, const std::string& vehicle_name = "");
+    void setLedIntensity(float intensity, const std::string& vehicle_name = "");
 
     void simSetTimeOfDay(bool is_enabled, const string& start_datetime = "", bool is_start_datetime_dst = false,
         float celestial_clock_speed = 1, float update_interval_secs = 60, bool move_sun = true);

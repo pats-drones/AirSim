@@ -104,7 +104,7 @@ RpcLibServerBase::RpcLibServerBase(ApiProvider* api_provider, const std::string&
         getWorldSimApi()->continueForTime(seconds); 
     });
 
-    pimpl_->server.bind("setLedIntensity", [&](int intensity, const std::string& vehicle_name) -> void { 
+    pimpl_->server.bind("setLedIntensity", [&](float intensity, const std::string& vehicle_name) -> void { 
         getVehicleSimApi(vehicle_name)->setLedIntensity(intensity);
     });
 
