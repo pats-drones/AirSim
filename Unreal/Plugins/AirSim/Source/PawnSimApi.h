@@ -2,6 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
+#include "Components/PointLightComponent.h"
 #include "Particles/ParticleSystemComponent.h"
 #include "UnrealImageCapture.h"
 
@@ -83,6 +84,7 @@ public: //implementation of VehicleSimApiBase
     virtual std::vector<float> getDistortionParams(const std::string& camera_name) override;
 
     virtual CollisionInfo getCollisionInfo() const override;
+    virtual void setLedIntensity(int intensity) override;
     virtual int getRemoteControlID() const override;
     virtual msr::airlib::RCData getRCData() const override;
     virtual std::string getVehicleName() const override
@@ -196,4 +198,6 @@ private: //vars
 
     FColor trace_color_ = FColor::Purple;
     float trace_thickness_ = 3.0f;
+
+    UPointLightComponent* ledComponent;
 };

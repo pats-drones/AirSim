@@ -53,6 +53,8 @@ void PawnSimApi::initialize()
     //add listener for pawn's collision event
     params_.pawn_events->getCollisionSignal().connect_member(this, &PawnSimApi::onCollision);
     params_.pawn_events->getPawnTickSignal().connect_member(this, &PawnSimApi::pawnTick);
+
+    ledComponent = params_.pawn->FindComponentByClass<UPointLightComponent>();
 }
 
 void PawnSimApi::setStartPosition(const FVector& position, const FRotator& rotator)
@@ -340,6 +342,14 @@ void PawnSimApi::reportState(msr::airlib::StateReporter& reporter)
 PawnSimApi::CollisionInfo PawnSimApi::getCollisionInfo() const
 {
     return state_.collision_info;
+}
+
+void PawnSimApi::setLedIntensity(int intensity)
+{
+    if(ledComponent)
+    {
+        ledComponent->SetIntensity(intensity);
+    }
 }
 
 FVector PawnSimApi::getUUPosition() const

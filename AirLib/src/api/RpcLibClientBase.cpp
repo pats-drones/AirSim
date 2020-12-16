@@ -208,6 +208,10 @@ CollisionInfo RpcLibClientBase::simGetCollisionInfo(const std::string& vehicle_n
     return pimpl_->client.call("simGetCollisionInfo", vehicle_name).as<RpcLibAdapatorsBase::CollisionInfo>().to();
 }
 
+void RpcLibClientBase::setLedIntensity(int intensity, const std::string& vehicle_name)
+{
+    pimpl_->client.call("setLedIntensity", intensity, vehicle_name);
+}
 
 //sim only
 Pose RpcLibClientBase::simGetVehiclePose(const std::string& vehicle_name) const

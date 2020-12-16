@@ -58,6 +58,12 @@ public:
         return true;
     }
 
+    virtual bool setLedIntensity(int intensity)
+    {
+        unused(intensity);
+        throw VehicleCommandNotImplementedException("setLedIntensity API is not supported for this vehicle"); 
+    }
+
     //if vehicle supports it, call this method to send
     //kinematics and other info to somewhere (ex. log viewer, file, cloud etc)
     virtual void sendTelemetry(float last_interval = -1)
