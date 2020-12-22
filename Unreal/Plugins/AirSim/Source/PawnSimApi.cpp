@@ -296,6 +296,7 @@ void PawnSimApi::resetImplementation()
     state_ = initial_state_;
     rc_data_ = msr::airlib::RCData();
     params_.pawn->SetActorLocationAndRotation(state_.start_location, state_.start_rotation, false, nullptr, ETeleportType::TeleportPhysics);
+    setLedIntensity(0);
     kinematics_->reset();
     environment_->reset();
 }
