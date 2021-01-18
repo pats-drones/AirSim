@@ -220,7 +220,7 @@ protected: //static utility functions for derived classes to use
         //set up arm lengths
         //dimensions are for F450 frame: http://artofcircuits.com/product/quadcopter-frame-hj450-with-power-distribution
         params.rotor_count = 4;
-        std::vector<real_T> arm_lengths(params.rotor_count, 0.2275f);
+        std::vector<real_T> arm_lengths(params.rotor_count, 0.35f);
 
         //set up mass
         params.mass = 0.05f; // Hammer drone weighs 50g

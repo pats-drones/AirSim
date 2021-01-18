@@ -41,7 +41,7 @@ namespace msr {
             C_P = 4.00745 * 0.05 = 0.2003725
             */
 
-            real_T C_T = 0.0959565f; // the thrust co-efficient 
+            real_T C_T = 0.0959565f * 1.3; // the thrust co-efficient 
             real_T C_P = 0.2003725f; // the torque co-efficient
             real_T air_density = 1.225f; //  kg/m^3
             real_T max_rpm = 50000.0f; // revolutions per minute
