@@ -119,7 +119,7 @@ mkdir -p Unreal/Environments/Blocks/Plugins
 rsync -a --delete Unreal/Plugins/AirSim Unreal/Environments/Blocks/Plugins
 
 # Update Greenhouse project
-if [ -d "Unreal/Environments/Greenhouse/clean.sh" ]; then
+if [ -f "Unreal/Environments/Greenhouse/clean.sh" ]; then
     Unreal/Environments/Greenhouse/clean.sh
     mkdir -p Unreal/Environments/Greenhouse/Plugins
     rsync -a --delete Unreal/Plugins/AirSim Unreal/Environments/Greenhouse/Plugins
